@@ -241,3 +241,21 @@ input[type="range"]::-moz-range-thumb {
 #mute-btn:hover {
   transform: scale(1.1);
 }
+
+#play-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.15s ease;
+}
+
+#play-btn:hover {
+  transform: scale(1.1);
+}
+

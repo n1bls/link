@@ -15,9 +15,9 @@ async function updateViews() {
 }
 
 updateViews();
-
 const audio = new Audio('./assets/audio/music.mp3');
 audio.loop = true;
+
 
 const enterOverlay = document.getElementById('enter-overlay');
 const trackSlider = document.getElementById('track-slider');
@@ -98,3 +98,29 @@ if (muteBtn) {
     }
   });
 }
+
+const playBtn = document.getElementById('play-btn');
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
+
+function updatePlayIcon() {
+  if (audio.paused) {
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
+  } else {
+    playIcon.style.display = 'none';
+    pauseIcon.style.display = 'block';
+  }
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+  updatePlayIcon();
+});
+
+audio.addEventListener('play', updatePlayIcon);
+audio.addEventListener('pause', updatePlayIcon);
